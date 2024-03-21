@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = "super secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+# img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
 # def processImage(filename, operation):
 #     print(f"The Operation is {operation} and the filename is {filename}")
