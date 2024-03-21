@@ -11,6 +11,14 @@ app = Flask(__name__)
 app.secret_key = "super secret key"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+# def processImage(filename, operation):
+#     print(f"The Operation is {operation} and the filename is {filename}")
+#     img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    # Rest of the function remains unchanged...
+
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -19,7 +27,10 @@ def allowed_file(filename):
 
 def processImage(filename, operation):
     print(f"The Operation is {operation} and the filename is {filename}")
-    img = cv2.imread(f"uploads/{filename}")
+    img = cv2.imread(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+# def processImage(filename, operation):
+#     print(f"The Operation is {operation} and the filename is {filename}")
+    # img = cv2.imread(f"uploads/{filename}")
     match operation:
         case "grayscale":
             new = f"static/{filename}"
